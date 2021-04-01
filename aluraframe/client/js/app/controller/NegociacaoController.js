@@ -11,14 +11,13 @@ class NegociacaoController {
 
     adiciona(event) {
         event.preventDefault();
-        let dateHelper = new DateHelper();
 
-        let data = new Date(dateHelper.textoParaData(this._inputData.value));
-        let diaMesAno = dateHelper.dataParaTexto(data);
+        let negociacao = new Negociacao(
+            DateHelper.textoParaData(this._inputData.value), 
+            this._inputQuantidade.value, 
+            this._inputValor.value
+            );
 
-        let negociacao = new Negociacao(data, this._inputQuantidade.value, this._inputValor.value);
-
-        console.log(diaMesAno);
         console.log(negociacao);
 
     }
